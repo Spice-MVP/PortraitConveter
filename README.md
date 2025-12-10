@@ -19,26 +19,15 @@ Convert landscape podcast videos to portrait format (9:16) by intelligently focu
 
 ```bash
 # Automated setup (recommended)
-./setup_venv.sh
+pip install -r requirements.txt
 
 # Install FFmpeg
 brew install ffmpeg  # macOS
 sudo apt install ffmpeg  # Linux
 ```
 
-See [SETUP_VENV.md](SETUP_VENV.md) for manual setup or [INSTALLATION.md](INSTALLATION.md) for system-wide installation.
 
-### Basic Usage
-
-```bash
-# Convert a video
-./run.sh --input landscape.mp4 --output portrait.mp4
-
-# With debug mode (shows detections)
-./run.sh --input landscape.mp4 --output portrait.mp4 --debug
-```
-
-**Alternative** (manual activation):
+**Basic Usage**:
 ```bash
 source venv/bin/activate
 python main.py --input landscape.mp4 --output portrait.mp4
@@ -154,7 +143,6 @@ Output Video (Portrait 9:16)
 ```
 PortraitConverter/
 ├── main.py                      # Command-line interface
-├── example_usage.py             # Example code
 ├── requirements.txt             # Python dependencies
 ├── README.md                    # This file
 ├── INSTALLATION.md              # Installation guide
@@ -194,8 +182,6 @@ converter = PortraitConverter(debug_mode=True)
 # Convert
 success = converter.convert("input.mp4", "output.mp4")
 ```
-
-See [example_usage.py](example_usage.py) for more examples.
 
 ## Performance
 
@@ -266,21 +252,3 @@ See [INSTALLATION.md](INSTALLATION.md) for more troubleshooting.
 
 See [requirements.txt](requirements.txt) for Python dependencies.
 
-## License
-
-MIT License - feel free to use and modify as needed.
-
-## Contributing
-
-Contributions welcome! Areas for improvement:
-- Dynamic crop tracking with smoothing
-- Better lip movement detection algorithms
-- Support for more video formats
-- Batch processing multiple videos
-- GUI interface
-
-## Credits
-
-- **YOLO-11**: Ultralytics
-- **RetinaFace**: serengil/retinaface
-- **Scene Detection**: PySceneDetect
